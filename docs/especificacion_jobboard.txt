@@ -1,0 +1,64 @@
+company
+-name company
+-identification_company
+-name
+-last name
+-email
+-state
+-city
+-address
+
+-phone
+-site(opcional)
+-logo(opcional)
+-password
+
+Offer
+-company(automatico)
+-title
+-type (Full-time,  Part-time)
+-experience(Sin experiencia, Al menos 1 año, Al menos 2 años, Al menos 5 años, 10 años o más)
+-description
+-salary(fixed o range)
+-currency
+-state
+-city
+-address
+-fecha de publicacion(automatico)
+-contact
+-estado(0,1)
+
+-Application
+-name
+-last name
+-offer(automatico)
+-profession
+-description
+-curriculum_id(pdf, doc, docx)
+
+category
+-name
+(
+ Administración, Agropecuaria, Alimentos, Arquitectura, Arte, Banca-Finanzas, Comercio, Construcción, Consultoría ,Defensa, Diseño, Educación, Electrónica, Energía, Entretenimiento, Farmacéutica, Gas, Gobierno, Hotel-Restaurante, Import-Export, Impresión, Informática, Ingenieria, Inmobiliaria, Internet, Jurídica, Manufactura, Marketing, Medios-Prensa, ONGs, Otro, Petróleo, Publicidad ,Química, R. Públicas, Rec. Humanos, Salud ,Seguros ,Telecomunicaciones ,Textil, Transporte, Turismo
+)
+
+currency(
+code - description
+DOP - Peso Dominicano,
+USD - Dolar America,
+EUR - Euro,
+)
+-pagina inicial empleos recientes
+-busqueda por (titulo, categoria,estado)
+-aplicar
+-registro de empresa
+-login empresa
+-dashboard(actualizar informacion de la empresa, notificar aplicaciones)
+-publicar empleos
+-aplicaciones(eliminar)
+
+CREATE TABLE estados(
+	id INT AUTO_INCREMENT,
+	nombre varchar(191),
+	PRIMARY KEY(id)
+);
