@@ -217,12 +217,14 @@ class OfertaController extends Controller
      */
     private function validateOffer(Request $request)
     {
+        
         $rules = $this->getRules();
         if($request->has("id"))
         {
             $rules["id"] = "required|exists:ofertas,id";
         }
-        $request->validate($rules);
+        $validator = Validator::make($request->all(),$rules);
+        return $validator;
     }
     /**
      * Obtiene las reglas base para validar los datos del formulario de oferta de trabajo

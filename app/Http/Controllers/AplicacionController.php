@@ -104,7 +104,7 @@ class AplicacionController extends Controller
      */
     private function validateAplicacion(Request $request)
     {
-        $request->validate(
+        $validator = $request->validate(
             [
                 "nombre" => "required|string",
                 "apellido" => "required|string",
@@ -115,6 +115,7 @@ class AplicacionController extends Controller
                 "hoja_vida" => "required|file|mimes:doc,docx,pdf|max:5120"
             ]
         );
+        return $validator;
     }
 
      /**
