@@ -47,7 +47,7 @@ class SocialController extends Controller
         $userAlreadyExist = User::where(["email" => $user->getEmail()])->exists();
         if($userAlreadyExist)
         {
-            return response("",400);
+            return response()->json("User already exists",400);
         }
         User::create($fields);
         return response("",200);
@@ -68,7 +68,7 @@ class SocialController extends Controller
        ])->get()->first();
        if($userToLog === null)
        {
-           return response("",400);
+           return response()->json("Unauthorized",401);
        }
 	   $token = Auth::login($userToLog);
        return $this->respondWithToken($token);

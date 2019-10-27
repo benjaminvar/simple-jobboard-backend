@@ -63,10 +63,13 @@ class AplicacionController extends Controller
     {
        
       
-        $this->validateAplicacion($request);
+        $validator = $this->validateAplicacion($request);
         $archivo = new Archivo();
         $aplicacion = new Aplicacion();
-
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(),400);
+        }
         if($request->hasFile("hoja_vida"))
         {
             

@@ -49,7 +49,7 @@ class EmpresaController extends Controller
      $validator = $this->getPasswordUpdateValidator($request);
      if($validator->fails())
      {
-          return  response("",400);
+          return  response($validator->errors(),400);
 
      }
      $user->update([
@@ -69,7 +69,7 @@ class EmpresaController extends Controller
      $validator = $this->getUserUpdateValidator($request);
      if($validator->fails())
      {
-          return response()->json($validator->errors()->all(),400);
+          return response()->json($validator->errors(),400);
      }
      $user->update([
           "nombre" => $request->nombre,
@@ -91,7 +91,7 @@ class EmpresaController extends Controller
      $validator = $this->getCompanyUpdateValidator($request);
      if($validator->fails())
      {
-          return response()->json($validator->errors()->all(),400);
+          return response()->json($validator->errors(),400);
      }
      if($request->hasFile("logo"))
      {

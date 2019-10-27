@@ -132,7 +132,11 @@ class OfertaController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $this->validateOffer($request);
+        $validator = $this->validateOffer($request);
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(),400);
+        }
         $oferta = Auth::user()->ofertas()->where(["id" => $id])->get()->first();
         $oferta->titulo = $request->titulo;
         $oferta->tipo = $request->tipo;
