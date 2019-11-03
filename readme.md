@@ -57,7 +57,7 @@ SITE_OWNER_EMAIL=<Your mail to receive contact page emails>
 php artisan jwt:secret
 ```
 
-### create links
+### Create Storage Link
 ```
 php artisan storage:link
 ```
